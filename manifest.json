@@ -3,7 +3,7 @@
   "display": "fullscreen",
   "start_url": "/",
   "short_name": "Luma",
-  "theme_color": "black",
+  "theme_color": "#000000",
   "description": "A test emulator that is still under beta",
   "orientation": "portrait",
   "background_color": "#6a1b9a",
