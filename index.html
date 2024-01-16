@@ -1,4 +1,4 @@
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Luma</title>
@@ -20,7 +20,8 @@
                 font-size: 20px;
                 margin: 0;
                 overflow: hidden;
-                background-image: url('docs/Zelda.jpeg');>
+                background: rgb(12,15,32);
+background: linear-gradient(180deg, rgba(12,15,32,1) 2%, rgba(74,48,85,1) 52%, rgba(95,60,104,1) 100%);
             }
 
             body, #box {
@@ -35,7 +36,7 @@
                 width: 75px;
                 max-width: 80%;
                 max-height: 80%;
-              background: blue;
+              background: #5e5be6;
               /*box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 100 );
               backdrop-filter: blur( 10px );
               -webkit-backdrop-filter: blur( 10px ); */
@@ -51,9 +52,10 @@
             }
 
             #box:hover, #box[drag] {
-                border-color: #38f;
-                background-color: #ddd
+                color: rgba(255, 255, 255, 1);
+                box-shadow: 0 0px 20px #5e5be6;
             }
+            
 
             #input {
                 cursor: pointer;
