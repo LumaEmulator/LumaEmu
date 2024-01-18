@@ -18,6 +18,12 @@ background: linear-gradient(180deg, rgba(12,15,32,1) 2%, rgba(74,48,85,1) 52%, r
     font-size: 14px;
 }
 
+@media only screen and (min-width: 601px) {
+  body {
+    background-color: black; /* Change to white or your desired color for mobile */
+  }
+}
+
 .ejs_parent *, .ejs_parent *::after, .ejs_parent *::before {
     font-family: Avenir, "Avenir Next", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
     box-sizing: border-box;
