@@ -1,7 +1,7 @@
 {
   "name": "Luma",
   "display": "fullscreen",
-  "start_url": "/LumaEmu",
+  "start_url": "/LumaEmu/Play",
   "short_name": "Luma",
   "theme_color": "#0c0f20",
   "description": "A test emulator that is still under beta",
