@@ -1,0 +1,276 @@
+      <!DOCTYPE html>
+      <html>
+
+      <head>
+          <title>Luma</title>
+          <link rel="manifest" href="manifest.json">
+          <link rel=icon href=docs/favicon.ico sizes="16x16 32x32 48x48 64x64" type=image/vnd.microsoft.icon>
+          <meta name=viewport content="width=device-width, initial-scale=1">
+
+        
+
+          <style>
+              body,
+              html {
+                  height: 100%;
+              }
+
+              body {
+                  font-family: monospace;
+                  font-weight: bold;
+                  font-size: 20px;
+                  margin: 0;
+                  overflow: hidden;
+                  background: rgb(12, 15, 32);
+                  background: linear-gradient(180deg, rgba(12, 15, 32, 1) 2%, rgba(74, 48, 85, 1) 52%, rgba(95, 60, 104, 1) 100%);
+              }
+
+              body,
+              #box {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+              }
+
+              #box {
+                  color: #aaa;
+                  height: 75px;
+                  width: 75px;
+                  max-width: 80%;
+                  max-height: 80%;
+                  background: #5e5be6;
+                  border-radius: 50%;
+                  text-align: center;
+                  position: absolute;
+                  bottom: 30px;
+                  flex-direction: column;
+                  transition-duration: 0.2s;
+                  overflow: hidden
+              }
+
+              #box:hover,
+              #box[drag] {
+                  color: rgba(255, 255, 255, 1);
+                  box-shadow: 0 0px 20px #5e5be6;
+              }
+
+              #input {
+                  cursor: pointer;
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 100%;
+                  height: 100%;
+                  opacity: 0
+              }
+
+              #display {
+                  width: 100%;
+                  height: 100%
+              }
+
+              select,
+              button {
+                  padding: 0.6em 0.4em;
+                  margin: 0.5em;
+                  width: 15em;
+                  max-width: 100%;
+                  font-family: monospace;
+                  font-weight: bold;
+                  font-size: 16px;
+                  background-color: #444;
+                  color: #aaa;
+                  border-radius: 0.4em;
+                  border: 1px solid #555;
+                  cursor: pointer;
+                  transition-duration: 0.2s
+              }
+
+              select:hover,
+              button:hover {
+                  background-color: #666;
+                  color: #ddd
+              }
+
+              /* Media Query for mobile devices */
+              @media only screen and (max-width: 600px) {
+                  #box {
+                      /* Keep the button in the current position for mobile devices */
+                      position: absolute;
+                      bottom: 30px;
+                  }
+              }
+
+              /* Media Query for desktop devices */
+              @media only screen and (min-width: 601px) {
+                  #box {
+                      /* Move the button to the bottom left for desktop devices */
+                      position: absolute;
+                      bottom: 30px;
+                      right: 40px;
+                  }
+
+  
+                
+              }
+          </style>
+      </head>
+
+      <body>
+          <div id=box>
+              <input type=file id=input>
+              <?xml version="1.0" ?><svg height="40px" version="1.1" viewBox="0 0 64 64" width="40px"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <title />
+                  <desc />
+                  <g fill="none" fill-rule="evenodd" id="Plus" stroke="none" stroke-width="1">
+                      <path d="M31.5,13 C32.8807119,13 34,14.1192881 34,15.5 L34,47.5 C34,48.8807119 32.8807119,50 31.5,50 C30.1192881,50 29,48.8807119 29,47.5 L29,15.5 C29,14.1192881 30.1192881,13 31.5,13 Z"
+                          fill="white" id="Rectangle" />
+                      <path d="M50,31.5 C50,32.8807119 48.8807119,34 47.5,34 L15.5,34 C14.1192881,34 13,32.8807119 13,31.5 C13,30.1192881 14.1192881,29 15.5,29 L47.5,29 C48.8807119,29 50,30.1192881 50,31.5 Z"
+                          fill="white" id="Rectangle" />
+                  </g>
+              </svg>
+          </div>
+      </body>
+
+      </html>
+
+        <script>
+         /* window.onload = function() {
+            alert("Whats new in v0.0.5?\n- Newly added web app support (still under maintenence)\n- New backgrounds\n-Computer support has temporaily been removed to improve mobile features");
+          };*/
+
+
+          
+            input.onchange = async () => {
+                const url = new Blob([input.files[0]])
+                const parts = input.files[0].name.split(".")
+
+                const core = await (async (ext) => {
+                    if (["fds", "nes", "unif", "unf"].includes(ext))
+                        return "nes"
+
+                    if (["smc", "fig", "sfc", "gd3", "gd7", "dx2", "bsx", "swc"].includes(ext))
+                        return "snes"
+
+                    if (["z64", "n64"].includes(ext))
+                        return "n64"
+
+                    if (["pce"].includes(ext))
+                        return "pce"
+
+                    if (["ngp", "ngc"].includes(ext))
+                        return "ngp"
+
+                    if (["ws", "wsc"].includes(ext))
+                        return "ws"
+
+                    if (["col", "cv"].includes(ext))
+                        return "coleco"
+
+                    if (["d64"].includes(ext))
+                        return "vice_x64"
+
+                    if (["nds", "gba", "gb", "z64", "n64"].includes(ext))
+                        return ext
+
+                    return await new Promise(resolve => {
+                        const cores = {
+                            "Nintendo 64": "n64",
+                            "Nintendo Game Boy": "gb",
+                            "Nintendo Game Boy Advance": "gba",
+                            "Nintendo DS": "nds",
+                            "Nintendo Entertainment System": "nes",
+                            "Super Nintendo Entertainment System": "snes",
+                            "PlayStation": "psx",
+                            "Virtual Boy": "vb",
+                            "Sega Mega Drive": "segaMD",
+                            "Sega Master System": "segaMS",
+                            "Sega CD": "segaCD",
+                            "Atari Lynx": "lynx",
+                            "Sega 32X": "sega32x",
+                            "Atari Jaguar": "jaguar",
+                            "Sega Game Gear": "segaGG",
+                            "Sega Saturn": "segaSaturn",
+                            "Atari 7800": "atari7800",
+                            "Atari 2600": "atari2600",
+                            "NEC TurboGrafx-16/SuperGrafx/PC Engine": "pce",
+                            "NEC PC-FX": "pcfx",
+                            "SNK NeoGeo Pocket (Color)": "ngp",
+                            "Bandai WonderSwan (Color)": "ws",
+                            "ColecoVision": "coleco",
+                            "Commodore 64": "vice_x64"
+                        }
+
+                        const button = document.createElement("button")
+                        const select = document.createElement("select")
+
+                        for (const type in cores) {
+                            const option = document.createElement("option")
+
+                            option.value = cores[type]
+                            option.textContent = type
+                            select.appendChild(option)
+                        }
+
+                        button.onclick = () => resolve(select[select.selectedIndex].value)
+                        button.textContent = "Load game"
+                        box.innerHTML = ""
+
+                        box.appendChild(select)
+                        box.appendChild(button)
+                    })
+                })(parts.pop())
+
+                const div = document.createElement("div")
+                const sub = document.createElement("div")
+                const script = document.createElement("script")
+
+                sub.id = "game"
+                div.id = "display"
+
+                box.remove()
+                div.appendChild(sub)
+                document.body.appendChild(div)
+
+                window.EJS_player = "#game";
+                window.EJS_gameName = parts.shift();
+                window.EJS_biosUrl = "";
+                window.EJS_gameUrl = url;
+                window.EJS_core = core;
+                window.EJS_pathtodata = "data/";
+                window.EJS_startOnLoaded = true;
+                
+
+
+                if (window.location.hostname === "demo.emulatorjs.org") {
+                    window.EJS_AdUrl = "https://ads.emulatorjs.org/";
+                    window.EJS_ready = function() {
+                        detectAdBlock("data:text/html;base64,PGh0bWw+PHN0eWxlPiNhZGJsb2Nre2JhY2tncm91bmQtY29sb3I6cmdiYSgwLDAsMCwuOCk7cG9zaXRpb246Zml4ZWQ7d2lkdGg6MTAwJTtoZWlnaHQ6MTAwJTt0b3A6MDtsZWZ0OjA7ei1pbmRleDoxMDAwO3RleHQtYWxpZ246Y2VudGVyO2NvbG9yOiNmZmZ9Ym9keSxodG1se2JhY2tncm91bmQtY29sb3I6dHJhbnNwYXJlbnR9PC9zdHlsZT48Ym9keSBzdHlsZT0ibWFyZ2luOjAiPjxkaXYgaWQ9ImFkYmxvY2siPjxoMT5IaSBBZGJsb2NrIFVzZXIhPC9oMT48cD5BZHMgb24gdGhpcyBwYWdlIG1heSBjb21lIGFuZCBnbyBkZXBlbmRpbmcgb24gaG93IG1hbnkgcGVvcGxlIGFyZSBmdW5kaW5nIHRoaXMgcHJvamVjdC48YnI+WW91IGNhbiBoZWxwIGZ1bmQgdGhpcyBwcm9qZWN0IG9uPGEgaHJlZj0iaHR0cHM6Ly9wYXRyZW9uLmNvbS9FbXVsYXRvckpTIj5wYXRyZW9uPC9hPjwvcD48L2Rpdj48L2JvZHk+PC9odG1sPg==");
+                    }
+                }
+                
+                script.src = "data/loader.js";
+                document.body.appendChild(script);
+            }
+            function detectAdBlock(url) {
+                let adBlockEnabled = false;
+                try {
+                    window.EJS_AdUrl = document.querySelector('iframe[src="'+window.EJS_AdUrl+'"]').src;
+                } catch (e) {
+                    adBlockEnabled = true;
+                }
+                if (adBlockEnabled) {
+                    window.EJS_adBlocked(url);
+                }
+            }
+            box.ondragover = () => box.setAttribute("drag", true);
+            box.ondragleave = () => box.removeAttribute("drag");
+
+
+                
+        </script>
+
+
+    </body>
+</html>
