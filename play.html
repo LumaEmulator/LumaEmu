@@ -6,7 +6,7 @@
           <link rel="manifest" href="manifest.json">
           <link rel=icon href=docs/favicon.ico sizes="16x16 32x32 48x48 64x64" type=image/vnd.microsoft.icon>
           <meta name=viewport content="width=device-width, initial-scale=1">
- 
+        <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
         
 
         <style>
@@ -103,11 +103,48 @@
                   right: 40px;
               }
           } 
+
+
+          @font-face {
+            font-family: Eloquia Sans Font;
+            src: url(docs/fonts/typekiln-eloquiadisplay-extrabold/Typekiln - EloquiaDisplay-ExtraBold.otf);
+          }
+
+          div {
+            font-family: Eloquia Sans Font;
+          }
+
+          nav {
+            background-color: rgba(23, 24, 25, 255);
+            padding: 9px;
+            color: white;
+            text-align: center;
+          }
+
+          /* Styling for the search bar */
+          .search-bar {
+            margin-top: 3px; /* Adjust the position from the top */
+            width: 800px; /* Adjust the length of the search bar */
+            height: 30px; /* Adjust the height of the search bar */
+            padding: 10px;
+            border: 1px solid rgba(41,41,43,255);
+            border-radius: 10px;
+            background-color: rgba(23, 24, 25, 255);
+            color: white;
+            margin-right: 200px;
+            font-family: Lato;
+            cursor: text; /* Set the cursor as a text cursor */
+            outline: none; /* Remove the default focus outline */
+          
         </style>
-      
+        <!-- The updated navigation bar with a search bar -->
+        <nav>
+          <!-- You can add a logo or title here if needed -->
+          <input type="text" class="search-bar" placeholder="  
+  Search">
+        </nav>
 
-
-
+       
       </head>
 
       <body>
