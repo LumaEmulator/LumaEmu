@@ -114,45 +114,45 @@
             font-family: Eloquia Sans Font;
           }
 
-          nav {
-            background-color: rgba(17,16,21,255);
-            padding: 9px;
-            color: white;
-            text-align: center;
-          }
+        nav {
+              background-color: rgba(17, 16, 21, 255);
+              padding: 9px;
+              color: white;
+              text-align: center;
+            }
 
-          /* Styling for the search bar */
-          .search-bar {
-            margin-top: 3px; /* Adjust the position from the top */
-            width: 800px; /* Adjust the length of the search bar */
-            height: 30px; /* Adjust the height of the search bar */
-            padding: 10px;
-            border: 0px solid rgba(41,41,43,255);
-            border-radius: 10px;
-            background-color: rgba(42,39,49,255);
-            color: white;
-            margin-right: 200px;
-            font-family: Lato;
-            cursor: text; /* Set the cursor as a text cursor */
-            outline: none; /* Remove the default focus outline */
+            /* Styling for the search bar */
+            .search-bar {
+              margin-top: 3px; /* Adjust the position from the top */
+              height: 30px; /* Adjust the height of the search bar */
+              padding: 10px;
+              border: 0px solid rgba(41, 41, 43, 255);
+              border-radius: 10px;
+              background-color: rgba(42, 39, 49, 255);
+              color: white;
+              font-family: Lato;
+              cursor: text; /* Set the cursor as a text cursor */
+              outline: none; /* Remove the default focus outline */
+              width: 800px; /* Default width for desktop */
 
+              /* Set the width for mobile screens */
+              @media (max-width: 767px) {
+                width: 400px; /* Adjust the width for mobile devices */
+                margin-right: 0; /* Remove the right margin on mobile */
+              }
+            }
+          </style>
+        </head>
+        <body>
 
+          <!-- The updated navigation bar with a search bar -->
+          <nav>
+            <!-- You can add a logo or title here if needed -->
+            <input type="text" class="search-bar" placeholder="Search">
+          </nav>
 
-
-
-
-
-
-
-            
-          
-        </style>
-        <!-- The updated navigation bar with a search bar -->
-        <nav>
-          <!-- You can add a logo or title here if needed -->
-          <input type="text" class="search-bar" placeholder="  
-  Search">
-        </nav>
+        </body>
+        </html>
 
        
       </head>
