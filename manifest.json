@@ -3,7 +3,7 @@
   "display": "fullscreen",
   "start_url": "/LumaEmu/Play",
   "short_name": "Luma",
-  "theme_color": "rgba(42, 39, 49, 255)",
+  "theme_color": "#111015",
   "description": "A test emulator that is still under beta",
   "orientation": "portrait",
   "background_color": "#6a1b9a",
