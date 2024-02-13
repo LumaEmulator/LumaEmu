@@ -356,19 +356,17 @@
 }
 </style>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+   document.addEventListener("DOMContentLoaded", function() {
   var popup = document.getElementById("custom-popup");
   var closeButton = document.getElementById("close-popup");
 
-  if (!localStorage.getItem("popupShown")) {
-    popup.style.display = "block";
-  }
+  popup.style.display = "block";
 
   closeButton.addEventListener("click", function() {
     popup.style.display = "none";
-    localStorage.setItem("popupShown", "true");
   });
 });
+</script>
 
 
     </body>
