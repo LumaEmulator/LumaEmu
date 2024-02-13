@@ -317,5 +317,59 @@
         </script>
 
 
+ <div id="custom-popup" class="popup">
+  <div class="popup-content">
+    <h2>Welcome!</h2>
+    <p>Thank you for visiting our website.</p>
+    <button id="close-popup">Close</button>
+  </div>
+</div>
+<style>
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  z-index: 9999;
+}
+
+.popup-content {
+  text-align: center;
+}
+
+#close-popup {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#close-popup:hover {
+  background-color: #555;
+}
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+  var popup = document.getElementById("custom-popup");
+  var closeButton = document.getElementById("close-popup");
+
+  if (!localStorage.getItem("popupShown")) {
+    popup.style.display = "block";
+  }
+
+  closeButton.addEventListener("click", function() {
+    popup.style.display = "none";
+    localStorage.setItem("popupShown", "true");
+  });
+});
+
+
     </body>
 </html>
