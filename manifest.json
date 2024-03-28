@@ -11,11 +11,11 @@
   "prefer_related_applications": false,
   "icons": [
     { 512 
-      "src": "docs/assets/icon.png",
+      "src": "icon.png",
       "sizes": "1024x1024"
     },
     {
-      "src": "docs/icon.png",
+      "src": "icon.png",
       "sizes": "640x640",
       "type": "image/png",
       "purpose": "maskable"     
