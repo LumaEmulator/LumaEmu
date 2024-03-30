@@ -3,7 +3,7 @@
   "name": "My Website",
   "short_name": "MySite",
   "description": "A basic website created with ChatGPT.",
-  "start_url": "/index.html",
+  "start_url": "/Play.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2196F3",
