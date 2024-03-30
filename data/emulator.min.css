@@ -1,6 +1,5 @@
 .ejs_parent {
-    background: rgb(12,15,32);
-background: linear-gradient(180deg, rgba(12,15,32,1) 2%, rgba(74,48,85,1) 52%, rgba(95,60,104,1) 100%);
+    background:black;
     overflow: hidden;
     position: relative;
     font-family: Avenir, "Avenir Next", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
@@ -17,6 +16,12 @@ background: linear-gradient(180deg, rgba(12,15,32,1) 2%, rgba(74,48,85,1) 52%, r
     outline: none;
     font-size: 14px;
 }
+
+@media only screen and (min-width: 601px) {
+  .ejs_parent{
+    background-color: green;
+  }
+
 
 @media only screen and (min-width: 601px) {
   body {
